@@ -11,20 +11,13 @@ import {
   CardMedia,
   CardContent,
   CardActions,
+  Box
 } from "@mui/material";
-import { Box } from "@mui/system";
 import React from "react";
+import FooterWithAutoCopyright from "./FooterWithAutoCopyright";
 
 export default function MaterialAlbumClone() {
   const cardArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-  function Copyright() {
-    return (
-      <Typography color="text.secondary" variant="body2">
-        Copyright © Aayush Website {new Date().getFullYear()}.
-      </Typography>
-    );
-  }
 
   return (
     <div>
@@ -93,21 +86,7 @@ export default function MaterialAlbumClone() {
         </Box>
       </main>
       <footer>
-        <Container
-          sx={{
-            "& > *": {
-              textAlign: "center",
-            },
-          }}
-        >
-          <Typography variant="h6" color="text.primary">
-            Footer
-          </Typography>
-          <Typography variant="body1" color="text.secondary">
-            Something here to give the footer a purpose!
-          </Typography>
-          <Copyright />
-        </Container>
+        <FooterWithAutoCopyright />
       </footer>
     </div>
   );

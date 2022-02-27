@@ -14,14 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-
-function Copyright() {
-  return (
-    <Typography color="text.secondary" variant="body2">
-      Copyright © Aayush Website {new Date().getFullYear()}.
-    </Typography>
-  );
-}
+import FooterWithAutoCopyright from "./FooterWithAutoCopyright";
 
 const tiers = [
   {
@@ -63,12 +56,42 @@ const tiers = [
   },
 ];
 
+const footers = [
+  {
+    title: "Company",
+    description: ["Team", "History", "Contact us", "Locations"],
+  },
+  {
+    title: "Features",
+    description: [
+      "Cool stuff",
+      "Random feature",
+      "Team feature",
+      "Developer stuff",
+      "Another one",
+    ],
+  },
+  {
+    title: "Resources",
+    description: [
+      "Resource",
+      "Resource name",
+      "Another resource",
+      "Final resource",
+    ],
+  },
+  {
+    title: "Legal",
+    description: ["Privacy policy", "Terms of use"],
+  },
+];
+
 export default function MaterialPricingClone() {
   return (
     <Box>
       <AppBar position="static" color="default" elevation={0}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
-          <Typography variant="h6">Company Name</Typography>
+          <Typography variant="h6">Iyush Company</Typography>
           <Box
             component="nav"
             sx={{
@@ -174,23 +197,42 @@ export default function MaterialPricingClone() {
           ))}
         </Grid>
       </Container>
-      <Box component="footer" sx={{py: 3}}>
-        <Container
-          sx={{
-            "& > *": {
-              textAlign: "center",
-            },
-          }}
-        >
-          <Typography variant="h6" color="text.primary">
-            Footer
-          </Typography>
-          <Typography variant="body1" color="text.secondary">
-            Something here to give the footer a purpose!
-          </Typography>
-          <Copyright />
-        </Container>
-      </Box>
+      <Container component="footer" sx={{ py: 3, mt: 7 }} maxWidth="md">
+        <Grid container spacing={4} justifyContent="space-evenly">
+          {footers.map((footer) => (
+            <Grid item xs={6} sm={3} key={footer.title}>
+              <Typography variant="h6" color="text.primary" gutterBottom>
+                {footer.title}
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  "&& > * ": {
+                    color: (theme) => theme.palette.primary.second,
+                    textDecoration: "none",
+                    "&:hover": {
+                      color: "blue",
+                    },
+                  },
+                }}
+              >
+                {footer.description.map((item) => (
+                  <Link
+                    key={item}
+                    href="#"
+                    variant="subtitle1"
+                    color="text.secondary"
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+        <FooterWithAutoCopyright />
+      </Container>
     </Box>
   );
 }
