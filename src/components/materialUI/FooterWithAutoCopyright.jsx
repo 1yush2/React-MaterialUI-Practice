@@ -3,7 +3,7 @@ import React from "react";
 
 function Copyright() {
   return (
-    <Typography color="text.secondary" variant="body2">
+    <Typography align="center" color="text.secondary" variant="body2">
       Copyright © Aayush Website {new Date().getFullYear()}.
     </Typography>
   );
@@ -11,17 +11,11 @@ function Copyright() {
 
 export default function FooterWithAutoCopyright() {
   return (
-    <Container
-      sx={{
-        "& > *": {
-          textAlign: "center",
-        },
-      }}
-    >
-      <Typography variant="h6" color="text.primary">
+    <Container>
+      <Typography align="center" variant="h6" color="text.primary">
         Footer
       </Typography>
-      <Typography variant="body1" color="text.secondary">
+      <Typography align="center" variant="body1" color="text.secondary">
         Something here to give the footer a purpose!
       </Typography>
       <Copyright />
