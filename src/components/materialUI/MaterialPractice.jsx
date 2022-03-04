@@ -2,6 +2,7 @@ import React from "react";
 import MaterialAlbumClone from "./MaterialAlbumClone";
 import MaterialSimpleSIgn from "./materialSimpleSIgn";
 import MaterialPricingClone from "./MaterialPricingClone";
+import Checkout from "./multiStepForm/Checkout";
 import ResponsiveNavbar from "./ResponsiveNavbar";
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
@@ -15,7 +16,8 @@ export default function MaterialPractice() {
         {/* <MaterialAlbumClone /> */}
         {/* <MaterialSimpleSIgn /> */}
         {/* <MaterialPricingClone /> */}
-        <ResponsiveNavbar />
+        {/* <ResponsiveNavbar /> */}
+        <Checkout />
       </ThemeProvider>
     </div>
   );
