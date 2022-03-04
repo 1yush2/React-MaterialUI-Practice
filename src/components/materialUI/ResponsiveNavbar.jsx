@@ -20,9 +20,13 @@ export default function ResponsiveNavbar() {
       <AppBar>
         <Toolbar>
           <Typography>Aayush Logo</Typography>
-          <Box sx={{display: "flex",}}>
+          <Box component="navigation" sx={{ display: "flex", marginLeft: "auto"}}>
             {NavData.map((navv) => {
-              return <Typography key={navv} sx={{mx:2}}>{navv}</Typography>;
+              return (
+                <Typography key={navv} sx={{ mx: 2, my: 1 }}>
+                  {navv}
+                </Typography>
+              );
             })}
             <Button variant="outlined">Log In</Button>
           </Box>
