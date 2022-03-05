@@ -11,8 +11,25 @@ import {
   Box,
 } from "@mui/material";
 import React, { useState } from "react";
+import Payment from "./Payment";
+import Review from "./Review";
+import Shipping from "./Shipping";
+import FooterCopyright from "./../FooterWithAutoCopyright";
 
 const steps = ["Shipping address", "Payment details", "Review your order"];
+
+function getStepContent(content) {
+  switch (content) {
+    case 0:
+      return <Shipping />;
+    case 1:
+      return <Payment />;
+    case 2:
+      return <Review />;
+    default:
+      throw new Error("Unknown step");
+  }
+}
 
 export default function Checkout() {
   const [actStep, setActStep] = useState(0);
@@ -57,13 +74,30 @@ export default function Checkout() {
               </Step>
             ))}
           </Stepper>
-          <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-            {actStep !== 0 && <Button onClick={handleBack}>Back</Button>}
-            <Button onClick={handleNext} variant="contained">
-              Next
-            </Button>
-          </Box>
+          {actStep == steps.length ? (
+            <>
+              <Typography variant="h5" gutterBottom>
+                Thank you for your order.
+              </Typography>
+              <Typography variant="subtitle1">
+                Your order number is #2001539. We have emailed your order
+                confirmation, and will send you an update when your order has
+                shipped.
+              </Typography>
+            </>
+          ) : (
+            <>
+              {getStepContent(actStep)}
+              <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                {actStep !== 0 && <Button onClick={handleBack}>Back</Button>}
+                <Button onClick={handleNext} variant="contained">
+                  {actStep !== steps.length - 1 ? "Next" : "Place Order"}
+                </Button>
+              </Box>
+            </>
+          )}
         </Paper>
+        <FooterCopyright />
       </Container>
     </>
   );
