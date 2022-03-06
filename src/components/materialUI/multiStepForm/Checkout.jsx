@@ -74,7 +74,7 @@ export default function Checkout() {
               </Step>
             ))}
           </Stepper>
-          {actStep == steps.length ? (
+          {actStep === steps.length ? (
             <>
               <Typography variant="h5" gutterBottom>
                 Thank you for your order.
