@@ -7,6 +7,9 @@ import {
 } from "@mui/material";
 import React from "react";
 
+const ADDRESS_1 = "address1";
+const ADDRESS_2 = "address2";
+
 const ShippingData = [
   {
     id: "firstName",
@@ -64,7 +67,7 @@ export default function Shipping() {
       <Grid container spacing={3}>
         {ShippingData.map((shipData) => {
           const { id, name, label, autoComplete } = shipData;
-          return id === "address1" || id === "address2" ? (
+          return id === ADDRESS_1 || id === ADDRESS_2 ? (
             <Grid key={id} item xs={12}>
               <TextField
                 required

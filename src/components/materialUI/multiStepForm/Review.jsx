@@ -37,12 +37,21 @@ const payments = [
   { name: "Expiry date", detail: "04/2024" },
 ];
 
-export default function Review() {
-  var sum = 0;
-  products.forEach((value) => {
-    sum += value.price;
+const calcTotalPrice = (items) => {
+  let sum = 0;
+
+  items.forEach((i) => {
+    const price = i?.price || 0;
+
+    if (typeof price === "number") {
+      sum += price;
+    }
   });
-  console.log(sum);
+
+  return sum;
+};
+
+export default function Review() {
   return (
     <>
       <Typography variant="h6" gutterBottom>
@@ -64,7 +73,7 @@ export default function Review() {
         <ListItem sx={{ py: 1, px: 0 }}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            $34.06
+            ${calcTotalPrice(products)}
           </Typography>
         </ListItem>
       </List>
