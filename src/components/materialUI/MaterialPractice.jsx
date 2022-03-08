@@ -4,6 +4,7 @@ import MaterialSimpleSIgn from "./materialSimpleSIgn";
 import MaterialPricingClone from "./MaterialPricingClone";
 import Checkout from "./multiStepForm/Checkout";
 import ResponsiveNavbar from "./ResponsiveNavbar";
+import DashboardClone from "./Dashboard/DashboardClone";
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./../theme";
@@ -17,7 +18,8 @@ export default function MaterialPractice() {
         {/* <MaterialSimpleSIgn /> */}
         {/* <MaterialPricingClone /> */}
         {/* <ResponsiveNavbar /> */}
-        <Checkout />
+        {/* <Checkout /> */}
+        <DashboardClone />
       </ThemeProvider>
     </div>
   );
