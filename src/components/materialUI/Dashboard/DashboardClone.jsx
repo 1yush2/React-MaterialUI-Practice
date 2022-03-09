@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Toolbar,
   IconButton,
@@ -6,15 +7,22 @@ import {
   Divider,
   List,
   Box,
+  Container,
+  Grid,
+  Paper,
 } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+
+import FooterCopyright from "./../FooterWithAutoCopyright";
+import Chart from "./Chart";
+import Deposit from "./Deposit";
+import Orders from "./Orders";
 import { mainListItems, secondaryListItems } from "./ListItems";
-import React, { useState } from "react";
 
 const drawerWidth = 240;
 
@@ -62,17 +70,15 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
-const mdTheme = createTheme();
-
 export default function DashboardClone() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
 
   return (
     <>
-      <AppBar position="absolute">
+      <AppBar position="absolute" open={open}>
         <Toolbar sx={{ pr: "24px" }}>
           <IconButton
             edge="start"
@@ -92,11 +98,7 @@ export default function DashboardClone() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant="permanent"
-        open={open}
-        
-      >
+      <Drawer variant="permanent" open={open}>
         <Toolbar
           sx={{
             display: "flex",
@@ -129,6 +131,46 @@ export default function DashboardClone() {
         }}
       >
         <Toolbar />
+        <Container maxWidth="lg" sx={{ my: 4 }}>
+          <Grid container spacing={3}>
+            <Grid item md={9}>
+              <Paper
+                sx={{
+                  p: 2,
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Chart />
+              </Paper>
+            </Grid>
+            <Grid item md={3}>
+              <Paper
+                sx={{
+                  p: 2,
+                  display: "flex",
+                  flexDirection: "column",
+                  height: 240,
+                }}
+              >
+                <Deposit />
+              </Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper
+                sx={{
+                  p: 2,
+                  display: "flex",
+                  flexDirection: "column",
+                  my: 4,
+                }}
+              >
+                <Orders />
+              </Paper>
+            </Grid>
+            <FooterCopyright />
+          </Grid>
+        </Container>
       </Box>
     </>
   );
