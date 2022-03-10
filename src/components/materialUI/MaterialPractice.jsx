@@ -6,6 +6,7 @@ import Checkout from "./multiStepForm/Checkout";
 import ResponsiveNavbar from "./ResponsiveNavbar";
 import DashboardClone from "./Dashboard/DashboardClone";
 import MaterialPictureSignIn from "./MaterialPictureSignIn";
+import ShowCase from "./ShowCase";
 
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
@@ -22,7 +23,8 @@ export default function MaterialPractice() {
         {/* <ResponsiveNavbar /> */}
         {/* <Checkout /> */}
         {/* <DashboardClone /> */}
-        <MaterialPictureSignIn />
+        {/* <MaterialPictureSignIn /> */}
+        <ShowCase />
       </ThemeProvider>
     </div>
   );
