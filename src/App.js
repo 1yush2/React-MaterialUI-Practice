@@ -1,9 +1,9 @@
-import Main from "./components/materialUI/MaterialPractice";
+import Main from "./components/materialUI/ShowCaseRoutes";
 
 function App() {
   return (
     <>
-      <Main />
+      <Main>SOmething</Main>
     </>
   );
 }
